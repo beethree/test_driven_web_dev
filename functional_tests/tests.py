@@ -56,11 +56,10 @@ class NewVisitorTest(LiveServerTestCase):
         self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
 
         # Now a new user, Francis, comes along to the site
+        self.browser.quit()
 
         # We use a new brower session to mak sure that no information
-        self.assertNotIn('Buy peacock feathers', page_text)
         # of Edith's is coming through from cookies etc
-        self.browser.quit()
         self.browser = webdriver.Firefox()
 
         # Francis visits the home page.  There is no sign of Edith's list
